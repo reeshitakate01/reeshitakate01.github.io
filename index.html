@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=65" />
+  <link rel="stylesheet" href="styles.css?v=67" />
   <script>document.documentElement.classList.add('js');try{if(sessionStorage.getItem('rk-seen')||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('no-curtain')}catch(e){}</script>
 </head>
 <body>
@@ -69,6 +69,7 @@
       <div class="hero-copy">
         <p class="hello"><span class="wave" aria-hidden="true">👋</span> hi, I'm</p>
         <h1 id="hero-title" class="hero-title">Reeshita<br /><span class="hl">Kate</span></h1>
+        <p class="hero-role">Security Engineer in training <span aria-hidden="true">·</span> Cybersecurity student</p>
         <p class="hero-line" aria-live="off">I <span class="rotator" id="rotator">break</span> <span class="hero-line-rest">things <span class="scribble">(on purpose)</span></span></p>
         <p class="hero-sub">Cybersecurity student who finds the bugs, writes the fix, and builds the tools that catch the next one. VAPT, secure backends and ML for security, from Pune, India.</p>
         <div class="hero-ctas">
@@ -76,6 +77,11 @@
           <a class="btn btn-pastel cta-play" href="#play">Play a mini-game <span class="cta-pad" aria-hidden="true">🎮</span></a>
         </div>
         <a class="story-cue" href="#story"><span aria-hidden="true">↓</span> or read my story</a>
+        <ul class="hero-social" aria-label="Find me online">
+          <li><a href="https://www.linkedin.com/in/reeshitakate/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/reeshitakate01" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="mailto:reeshitakate01@gmail.com">reeshitakate01@gmail.com</a></li>
+        </ul>
       </div>
 
       <div class="hero-stage">
@@ -158,6 +164,7 @@
           <p class="tile-label">who's this</p>
           <p class="intro-big">I like the whole life of a security bug: <mark>finding it</mark>, <mark class="m2">proving it's real</mark>, explaining it to the people who fix it, and <mark class="m3">building tools</mark> so it doesn't happen again.</p>
           <p>I'm a B.Tech Computer Science (Cybersecurity) student. In my VAPT engagement I found a broken-access-control flaw running through almost every API endpoint of a production platform. On the build side I write Python: Flask APIs, SQL, Docker, CI, AWS. Lately I've been using ML to catch what rules miss.</p>
+          <p class="intro-personal">Away from the screen I'm usually dancing, swimming or planning my next trip, and yoga, meditation and a game of table tennis keep me balanced. I got into security after seeing how easy an attack on my own family was, and I like being the person who makes it hard.</p>
         </article>
 
         <article class="tile t-clock reveal" aria-labelledby="clock-h">
@@ -348,23 +355,27 @@
         <p class="sec-kicker">chapter 04 · building the defence</p>
         <h2 id="projects-h">Collect all 4</h2>
         <p class="chap-intro">Finding bugs one at a time doesn't scale. So I build tools that catch them automatically and keep people's data from leaking.</p>
-        <p class="sec-sub">Pick a project and I'll deal you its card. Tap the card to flip it.</p>
+        <p class="sec-sub">Best first. Open any project for the full card, then tap it to flip for the details.</p>
       </header>
       <ul class="pindex" aria-label="Projects. Choose one to open its card.">
         <li data-tags="sec swe"><button type="button" class="prow" data-card="0" style="--fill: var(--mint)">
           <span class="prow-num">01</span><span class="prow-title">VulnScan Pro</span><span class="prow-tag">solo · security tool</span><span class="prow-live"><span class="live-dot" aria-hidden="true"></span> live demo</span>
+          <span class="prow-result">Web vulnerability scanner, live on AWS. <b>15 security checks</b>, A to F grading, <b>52 tests</b> running in CI.</span>
           <span class="prow-cta" aria-hidden="true">deal the card ↗</span><span class="prow-pop" aria-hidden="true">🛡️</span>
         </button></li>
         <li data-tags="ml sec"><button type="button" class="prow" data-card="1" style="--fill: var(--lilac)">
           <span class="prow-num">02</span><span class="prow-title">SAGE</span><span class="prow-tag">team · ML × security</span>
+          <span class="prow-result">Stops secrets leaking into AI chatbots. My ML detector scores <b>0.89 F1 vs 0.69</b> for the best baseline, fully in the browser.</span>
           <span class="prow-cta" aria-hidden="true">deal the card ↗</span><span class="prow-pop" aria-hidden="true">🧠</span>
         </button></li>
         <li data-tags="sec ml swe"><button type="button" class="prow" data-card="2" style="--fill: var(--peach)">
           <span class="prow-num">03</span><span class="prow-title">MedSentry</span><span class="prow-tag">capstone · health security</span>
+          <span class="prow-result">Flags hospital device messages that are valid but medically impossible. I built a <b>3,395-message</b> test set and scored it against <b>5 baselines</b>.</span>
           <span class="prow-cta" aria-hidden="true">deal the card ↗</span><span class="prow-pop" aria-hidden="true">🫀</span>
         </button></li>
         <li data-tags="ml sec"><button type="button" class="prow" data-card="3" style="--fill: var(--sky)">
           <span class="prow-num">04</span><span class="prow-title">Federated IDS</span><span class="prow-tag">research · IoT × ML</span>
+          <span class="prow-result">Intrusion detection trained without sharing raw traffic. <b>90%+ accuracy</b> on unseen networks vs 25 to 40% for centralised models, across <b>11M+ samples</b>.</span>
           <span class="prow-cta" aria-hidden="true">deal the card ↗</span><span class="prow-pop" aria-hidden="true">📡</span>
         </button></li>
       </ul>
@@ -672,8 +683,8 @@
   <div class="toasts" id="toasts" aria-live="polite"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
-  <script src="main.js?v=65" defer></script>
-  <script src="cursor.js?v=65" defer></script>
+  <script src="main.js?v=67" defer></script>
+  <script src="cursor.js?v=67" defer></script>
   <script type="importmap">
     { "imports": {
       "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
