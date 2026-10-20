@@ -1,1126 +1,458 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="midnight">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reeshita Kate · breaks things, builds things</title>
-  <meta name="description" content="Reeshita Kate: cybersecurity student in Pune. VAPT, secure backends and ML for security. Come for the projects, stay for the bug hunt." />
-  <meta property="og:title" content="Reeshita Kate · breaks things, builds things" />
-  <meta property="og:description" content="Cybersecurity student who finds the bugs, writes the fix, and builds the tools that catch the next one." />
-  <meta name="theme-color" content="#fbf8f1" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='16' fill='%23d9ccff' stroke='%2316130f' stroke-width='4'/%3E%3Ctext x='50%25' y='60%25' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='800' fill='%2316130f'%3ERK%3C/text%3E%3C/svg%3E" />
+  <title>Reeshita Kate · Cybersecurity, AppSec &amp; Security Engineering</title>
+  <meta name="description" content="Reeshita Kate: cybersecurity student and security engineer in training, open to security, software engineering and ML roles." />
+  <meta property="og:title" content="Reeshita Kate · Security Engineer in training" />
+  <meta property="og:description" content="Open to security, software engineering and ML roles. Graduating 2027." />
+  <meta name="theme-color" content="#1c2140" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='16' fill='%23ddd1ff' stroke='%2316130f' stroke-width='5'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='900' font-size='24' text-anchor='middle' fill='%2316130f'%3ERK%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=67" />
-  <script>document.documentElement.classList.add('js');try{if(sessionStorage.getItem('rk-seen')||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('no-curtain')}catch(e){}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=100" />
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="curtain" aria-hidden="true">
-    <div class="cp cp1"></div><div class="cp cp2"></div><div class="cp cp3"></div>
-    <p class="curtain-hi">hi! 👋 <span>unlocking the portfolio…</span></p>
-  </div>
-  <canvas id="bg3d" aria-hidden="true"></canvas>
 
-  <!-- ========== NAV ========== -->
   <header class="nav">
-    <button class="logo" id="logo" type="button" aria-label="Reeshita Kate, back to top">
-      <span class="logo-badge">RK</span><span class="logo-text">reeshita<span class="logo-dot">.</span>kate</span>
-    </button>
-    <nav aria-label="Primary">
-      <ul class="nav-links">
-        <li><a href="#about">about</a></li>
-        <li><a href="#story">story</a></li>
-        <li><a href="#quests">experience</a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#play">play</a></li>
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>
+    <a class="logo" href="#top" aria-label="Back to top"><span class="logo-mark" id="logoMark"><b>RK</b></span></a>
+    <nav class="nav-pill" aria-label="Sections">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#experience">experience</a>
+      <a href="#work">projects</a>
+      <a href="#contact">contact</a>
     </nav>
-    <div class="nav-right">
-      <button class="trophy" id="trophyBtn" type="button" aria-haspopup="dialog" aria-label="Achievements: 0 of 8 unlocked">
-        <span aria-hidden="true">🏆</span> <b id="trophyCount">0</b><span class="of">/8</span>
-      </button>
-      <a class="btn btn-ink btn-sm" href="assets/Reeshita_Kate_Resume.pdf" download>Resume <span aria-hidden="true">↓</span></a>
+    <div class="nav-right2">
+      <div class="flags">
+        <button type="button" class="flag-btn mono" id="flagBtn" aria-expanded="false" aria-controls="flagPop"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 15V1.5M3 2h9l-2 3 2 3H3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> flags <b id="flagCount">0</b>/3</button>
+        <div class="flag-pop" id="flagPop" hidden>
+          <p class="mono fp-h">capture the flag</p>
+          <p class="fp-sub">Optional, just for fun: three flags are hidden across this site.</p>
+          <ol>
+            <li data-flag="tab">Leave this tab, then come back</li>
+            <li data-flag="scam">Catch every red flag in the scam text</li>
+            <li data-flag="grade">Scroll VulnScan Pro all the way to an A</li>
+          </ol>
+        </div>
+      </div>
+      <button type="button" class="nav-skim" id="skimBtn" aria-haspopup="dialog">30-sec view</button>
     </div>
   </header>
 
-  <nav class="spine" aria-label="Story chapters">
+  <nav class="rail" aria-label="Assessment progress">
+    <p class="rail-pct mono"><b id="railPct">0</b>%</p>
     <ol>
-      <li><a href="#main"><i></i><span>prologue</span></a></li>
-      <li><a href="#about"><i></i><span>01 · the short version</span></a></li>
-      <li><a href="#story"><i></i><span>02 · the story so far</span></a></li>
-      <li><a href="#quests"><i></i><span>03 · the full quest log</span></a></li>
-      <li><a href="#projects"><i></i><span>04 · building the defence</span></a></li>
-      <li><a href="#play"><i></i><span>05 · your turn</span></a></li>
-      <li><a href="#skills"><i></i><span>06 · the toolkit</span></a></li>
-      <li><a href="#offclock"><i></i><span>07 · off the clock</span></a></li>
-      <li><a href="#next"><i></i><span>epilogue · what's next</span></a></li>
+      <li><a href="#about" data-sec="about"><i></i><span>recon</span></a></li>
+      <li><a href="#skills" data-sec="skills"><i></i><span>scan</span></a></li>
+      <li><a href="#experience" data-sec="experience"><i></i><span>test</span></a></li>
+      <li><a href="#work" data-sec="work"><i></i><span>prove</span></a></li>
+      <li><a href="#contact" data-sec="contact"><i></i><span>report</span></a></li>
     </ol>
-    <span class="spine-bug" aria-hidden="true">🐞</span>
   </nav>
+  <div class="railbar" aria-hidden="true"><i id="railBar"></i></div>
+  <div class="toast mono" id="toast" role="status" aria-live="polite"></div>
 
   <main id="main">
-    <!-- ========== HERO ========== -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="floaties" aria-hidden="true"><span class="fl fl1"></span><span class="fl fl2"></span><span class="fl fl3"></span><span class="fl fl4"></span><span class="fl fl5">✦</span></div>
+    <!-- ================= FRONT PAGE ================= -->
+    <section class="hero" id="top" aria-labelledby="hero-h">
+      <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="hello"><span class="wave" aria-hidden="true">👋</span> hi, I'm</p>
-        <h1 id="hero-title" class="hero-title">Reeshita<br /><span class="hl">Kate</span></h1>
-        <p class="hero-role">Security Engineer in training <span aria-hidden="true">·</span> Cybersecurity student</p>
-        <p class="hero-line" aria-live="off">I <span class="rotator" id="rotator">break</span> <span class="hero-line-rest">things <span class="scribble">(on purpose)</span></span></p>
-        <p class="hero-sub">Cybersecurity student who finds the bugs, writes the fix, and builds the tools that catch the next one. VAPT, secure backends and ML for security, from Pune, India.</p>
+        <p class="hello mono">hi, I'm</p>
+        <h1 id="hero-h">Reeshita Kate</h1>
+        <p class="hero-title">Cybersecurity student · AppSec &amp; security engineering</p>
+        <p class="hero-what">I test web apps and APIs for access-control flaws, and build tools that catch them automatically.</p>
+        <p class="hero-open">Looking for security internships, and full-time roles from 2027. Based in Pune · open to remote.</p>
         <div class="hero-ctas">
-          <a class="btn btn-ink cta-work" href="#projects">See my work <span class="cta-arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn-pastel cta-play" href="#play">Play a mini-game <span class="cta-pad" aria-hidden="true">🎮</span></a>
+          <a class="pill pill-solid" href="assets/Reeshita_Kate_Resume.pdf" download>Resume <span aria-hidden="true">&darr;</span></a>
+          <a class="pill" href="#contact">Let's talk</a>
+          <a class="pill" href="https://github.com/reeshitakate01" target="_blank" rel="noopener">GitHub</a>
         </div>
-        <a class="story-cue" href="#story"><span aria-hidden="true">↓</span> or read my story</a>
-        <ul class="hero-social" aria-label="Find me online">
-          <li><a href="https://www.linkedin.com/in/reeshitakate/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-          <li><a href="https://github.com/reeshitakate01" target="_blank" rel="noopener">GitHub ↗</a></li>
-          <li><a href="mailto:reeshitakate01@gmail.com">reeshitakate01@gmail.com</a></li>
+      </div>
+      <aside class="bv dark" id="bv" aria-labelledby="bv-h">
+        <div class="bv-scan" aria-hidden="true"></div>
+        <p class="bv-kicker mono" id="bv-h">in the <b id="bvLoad">0.2 s</b> this page took to load, your browser told me:</p>
+        <ul class="bv-list" aria-live="polite">
+          <li data-k="browser"><span class="bv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M3 5h18v14H3zM3 9h18M7 7h.01M10 7h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="bv-label">you're using</span><b class="bv-val"><span class="bv-text">…</span></b></li>
+          <li data-k="time"><span class="bv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="bv-label">where you are</span><b class="bv-val"><span class="bv-text">…</span></b></li>
+          <li data-k="from"><span class="bv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M10 14l11-11M21 3h-6M21 3v6M14 10l-4 4M3 21l7-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="bv-label">you came from</span><b class="bv-val"><span class="bv-text">…</span></b></li>
+          <li data-k="screen"><span class="bv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M4 4h16v12H4zM9 20h6M12 16v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="bv-label">your screen</span><b class="bv-val"><span class="bv-text">…</span></b></li>
+          <li data-k="device"><span class="bv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 7h10v10H7zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="bv-label">your device</span><b class="bv-val"><span class="bv-text">…</span></b></li>
         </ul>
-      </div>
-
-      <div class="hero-stage">
-        <div class="lock-card" id="lockCard">
-          <div class="lock-wrap lock-front" id="lockWrap">
-            <canvas id="lock3d" aria-hidden="true"></canvas>
-            <div class="lock-fallback" aria-hidden="true">
-              <svg class="fb-lock" viewBox="0 0 120 140">
-                <g class="fb-shackle">
-                  <path d="M35 64 V40 a25 25 0 0 1 50 0 V64" fill="none" stroke="#16130f" stroke-width="19" stroke-linecap="round"/>
-                  <path d="M35 64 V40 a25 25 0 0 1 50 0 V64" fill="none" stroke="#f1edf9" stroke-width="11" stroke-linecap="round"/>
-                </g>
-                <rect x="14" y="58" width="92" height="74" rx="18" fill="#ffd45c" stroke="#16130f" stroke-width="4.5"/>
-                <g class="fb-eyes" fill="#16130f"><ellipse cx="45" cy="86" rx="4.5" ry="6"/><ellipse cx="75" cy="86" rx="4.5" ry="6"/></g>
-                <ellipse cx="32" cy="98" rx="7" ry="4" fill="#ff8fa3" opacity=".6"/><ellipse cx="88" cy="98" rx="7" ry="4" fill="#ff8fa3" opacity=".6"/>
-                <circle cx="60" cy="106" r="6" fill="#16130f"/><rect x="57" y="106" width="6" height="13" rx="2" fill="#16130f"/>
-              </svg>
-            </div>
-            <div class="bubble" id="bubble" aria-hidden="true">access granted ✨</div>
-            <p class="lock-hint" aria-hidden="true">🔐 profile locked · click to open</p>
-          </div>
-          <div class="lock-back" id="lockBack" role="region" aria-label="Recruiter summary" inert>
-            <p class="tldr-kicker">✓ access granted · the 20-second version</p>
-            <p class="tldr-name">Reeshita Kate</p>
-            <p class="tldr-role">Cybersecurity student and security engineer in training</p>
-            <ul class="tldr-list">
-              <li><span aria-hidden="true">🎓</span> B.Tech CS (Cybersecurity), SSPU Pune · class of 2027 · CGPA 8.9</li>
-              <li><span aria-hidden="true">💼</span> 3 internships across security, web dev and ML, including a production VAPT with 60+ findings</li>
-              <li><span aria-hidden="true">🛠️</span> 4 projects across AppSec, AI security, healthcare and IoT, from scanners to ML detectors</li>
-              <li><span aria-hidden="true">🎯</span> Looking for security, software engineering and ML roles</li>
-            </ul>
-            <div class="tldr-ctas">
-              <a class="btn btn-ink btn-sm" href="assets/Reeshita_Kate_Resume.pdf" download>Resume ↓</a>
-              <a class="btn btn-pastel btn-sm" href="#contact">Say hi 👋</a>
-              <button type="button" class="btn btn-ghost btn-sm" id="relockBtn">🔒 Lock again</button>
-            </div>
-          </div>
+        <p class="bv-punch">Every website can read this, without asking. <span>I make sure that's all it gets.</span></p>
+        <div class="bv-actions">
+          <button type="button" class="bv-btn mono" id="bvRedact" aria-pressed="false">Redact my data</button>
+          <button type="button" class="bv-btn ghost mono" id="bvHow" aria-expanded="false" aria-controls="bvHowBox">How did you know?</button>
         </div>
-        <p class="annot annot-lock" aria-hidden="true">
-          <svg viewBox="0 0 80 60"><path d="M6 8 C 30 4, 52 18, 62 46" /><path d="M52 40 L 62 48 L 66 36" /></svg>
-          unlock my profile!
-        </p>
-        <button class="unlock-btn" id="unlockBtn" type="button" aria-pressed="false">🔓 Unlock my profile</button>
-      </div>
-
-      <!-- draggable stickers -->
-      <div class="stickers" id="stickers" aria-label="Stickers. You can drag these around.">
-        <span class="sticker s-mint" style="--x:14%;--y:4%;--r:-5deg">🛡️ 3 internships · security, web, ML</span>
-        <span class="sticker s-butter" style="--x:45%;--y:5%;--r:5deg">💼 Open to roles</span>
-        <span class="sticker s-lilac" style="--x:91%;--y:8%;--r:8deg">🎓 B.Tech CS · 2027</span>
-        <span class="sticker s-peach" style="--x:50%;--y:96%;--r:-5deg">📍 Pune, India</span>
-        <span class="sticker s-sky" style="--x:93%;--y:86%;--r:-8deg">🏅 ISC2 certified</span>
-        <span class="sticker s-stamp" style="--x:22%;--y:96%;--r:-9deg"><b>A+</b> self-graded</span>
-      </div>
-    </section>
-
-    <!-- ========== HIRING LENS ========== -->
-    <div class="lens" role="group" aria-labelledby="lens-label">
-      <span id="lens-label" class="lens-label">I'm hiring for</span>
-      <div class="lens-opts">
-        <button type="button" class="lens-btn on" data-lens="all" aria-pressed="true">✦ everything</button>
-        <button type="button" class="lens-btn" data-lens="sec" aria-pressed="false">🛡️ security</button>
-        <button type="button" class="lens-btn" data-lens="swe" aria-pressed="false">⚙️ software eng</button>
-        <button type="button" class="lens-btn" data-lens="ml" aria-pressed="false">🧠 ML / AI</button>
-      </div>
-      <p class="lens-hint" id="lensHint" role="status">Pick one and I'll highlight what's relevant for you.</p>
-      <button type="button" class="lens-clear" id="lensClear" hidden>✕ show everything</button>
-    </div>
-
-
-    <!-- ========== ABOUT / BENTO ========== -->
-    <section id="about" class="section" aria-labelledby="about-h">
-      <header class="sec-head">
-        <p class="sec-kicker">chapter 01 · the short version</p>
-        <h2 id="about-h">The short version</h2>
-        <p class="chap-intro">Hi! Here's a quick snapshot of me. The full story comes right after.</p>
-      </header>
-      <div class="bento">
-        <article class="tile t-intro reveal">
-          <p class="tile-label">who's this</p>
-          <p class="intro-big">I like the whole life of a security bug: <mark>finding it</mark>, <mark class="m2">proving it's real</mark>, explaining it to the people who fix it, and <mark class="m3">building tools</mark> so it doesn't happen again.</p>
-          <p>I'm a B.Tech Computer Science (Cybersecurity) student. In my VAPT engagement I found a broken-access-control flaw running through almost every API endpoint of a production platform. On the build side I write Python: Flask APIs, SQL, Docker, CI, AWS. Lately I've been using ML to catch what rules miss.</p>
-          <p class="intro-personal">Away from the screen I'm usually dancing, swimming or planning my next trip, and yoga, meditation and a game of table tennis keep me balanced. I got into security after seeing how easy an attack on my own family was, and I like being the person who makes it hard.</p>
-        </article>
-
-        <article class="tile t-clock reveal" aria-labelledby="clock-h">
-          <p class="tile-label" id="clock-h">right now in Pune</p>
-          <p class="clock" id="clock">--:--</p>
-          <p class="clock-status" id="clockStatus">probably writing tests</p>
-        </article>
-
-        <article class="tile t-edu reveal">
-          <p class="tile-label">education</p>
-          <span class="card-sticker cs-lilac">🎓 CGPA 8.9</span>
-          <div class="ring" style="--p:89" role="img" aria-label="CGPA 8.9 out of 10">
-            <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50" class="ring-bg"/><circle cx="60" cy="60" r="50" class="ring-fg"/></svg>
-            <span><b>8.9</b><small>/10 CGPA</small></span>
-          </div>
-          <p class="edu-name">B.Tech CSIT (Cybersecurity)</p>
-          <p class="muted">Symbiosis Skills &amp; Professional University · grad. Aug 2027</p>
-        </article>
-
-        <article class="tile t-stat t-mint reveal" data-tags="sec">
-          <p class="stat-num"><span data-count="60">0</span>+</p>
-          <p>confirmed findings in a production VAPT</p>
-        </article>
-
-        <article class="tile t-stat t-butter reveal" data-tags="swe sec">
-          <p class="stat-num" data-count="15">0</p>
-          <p>security checks in my own scanner</p>
-        </article>
-
-        <article class="tile t-stat t-lilac reveal" data-tags="ml">
-          <p class="stat-num"><span data-count="11">0</span>M+</p>
-          <p>IoT samples trained with federated learning</p>
-        </article>
-
-        <article class="tile t-flip reveal" data-tags="sec">
-          <div class="flip" id="storyFlip">
-            <div class="flip-face flip-front">
-              <p class="tile-label">story time</p>
-              <p class="flip-q">How did I find one bug in <em>almost every</em> endpoint?</p>
-              <button type="button" class="btn btn-pastel btn-sm" data-flip="storyFlip">tell me ↻</button>
-            </div>
-            <div class="flip-face flip-back">
-              <p class="tile-label">the answer</p>
-              <p>I threat-modelled the API before poking at it. Once I saw how tenants and IDs were handled, I swapped one user's IDs into another's requests. It worked nearly everywhere, which meant account takeover, privilege escalation and session hijacking. I wrote it up, they patched it, and I re-tested every fix.</p>
-              <button type="button" class="btn btn-ghost btn-sm" data-flip="storyFlip">back ↺</button>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ========== HOW I WORK ========== -->
-    <section class="loop" aria-labelledby="loop-h">
-      <h2 class="loop-kicker" id="loop-h">how I work, in 4 steps</h2>
-      <ol class="loop-steps">
-        <li class="step reveal">
-          <div class="cube" aria-hidden="true"><i class="f1">🔍</i><i class="f2">🧭</i><i class="f3">🗺️</i><i class="f4">🔦</i><i class="f5"></i><i class="f6"></i></div>
-          <h3>Find</h3>
-          <p>Threat-model first, then dig in with Burp, ZAP and fuzzers.</p>
-        </li>
-        <li class="step reveal">
-          <div class="cube" aria-hidden="true"><i class="f1">🧪</i><i class="f2">📸</i><i class="f3">📏</i><i class="f4">🧾</i><i class="f5"></i><i class="f6"></i></div>
-          <h3>Prove</h3>
-          <p>Every finding gets a working proof, a CVSS score and an OWASP label.</p>
-        </li>
-        <li class="step reveal">
-          <div class="cube" aria-hidden="true"><i class="f1">🛠️</i><i class="f2">📝</i><i class="f3">🔁</i><i class="f4">✅</i><i class="f5"></i><i class="f6"></i></div>
-          <h3>Fix</h3>
-          <p>Clear, prioritised fixes for engineers. Then I re-test until it holds.</p>
-        </li>
-        <li class="step reveal">
-          <div class="cube" aria-hidden="true"><i class="f1">🤖</i><i class="f2">⚙️</i><i class="f3">📦</i><i class="f4">🧠</i><i class="f5"></i><i class="f6"></i></div>
-          <h3>Automate</h3>
-          <p>Turn the lesson into tools: scanners, CI checks, ML detectors.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- ========== CHAPTER 02: THE STORY SO FAR (3 parts) ========== -->
-    <section id="story" class="section" aria-labelledby="story-h">
-      <header class="sec-head">
-        <p class="sec-kicker">chapter 02 · the story so far</p>
-        <h2 id="story-h">How I got here</h2>
-      </header>
-      <p class="story-lead reveal">I got into security after seeing how easy an attack can be. Now I look for those weak spots before attackers do, and help teams fix them.</p>
-      <ol class="story3">
-        <li class="s3 s3-a reveal">
-          <span class="s3-num">01</span>
-          <p class="s3-tag">where it started</p>
-          <h3>It started close to home.</h3>
-          <p>Someone in my family got scammed over a phone call. The attacker barely had to try, and I couldn't stop thinking about it. How did it work, and how could it be made harder?</p>
-        </li>
-        <li class="s3 s3-b reveal">
-          <span class="s3-num">02</span>
-          <p class="s3-tag">learning the craft</p>
-          <h3>So I learned it properly.</h3>
-          <p>I chose a B.Tech in cybersecurity, picked up certifications from ISC2, AWS, IBM and Cisco, and did internships in ML, web and security. The trickiest part was learning to think like an attacker, then explaining it in a way engineers would act on.</p>
-        </li>
-        <li class="s3 s3-c reveal">
-          <span class="s3-num">03</span>
-          <p class="s3-tag">the moment it clicked</p>
-          <h3>One number changed everything.</h3>
-          <p>During my internship at Sciqus, I changed a single ID in an API request and saw another user's data. The same flaw showed up almost everywhere. I proved it, reported it and checked every fix myself, and it was closed before anyone could misuse it.</p>
-        </li>
-      </ol>
-      <p class="story3-end reveal">I watched how easy it was for an attacker. <mark>Now I make it hard.</mark></p>
-    </section>
-
-    <!-- ========== QUESTS / EXPERIENCE ========== -->
-    <section id="quests" class="section" aria-labelledby="quests-h">
-      <header class="sec-head">
-        <p class="sec-kicker">chapter 03 · the full quest log</p>
-        <h2 id="quests-h">Quest log</h2>
-        <p class="chap-intro">Those were the highlights. Here's every quest so far.</p>
-        <p class="sec-sub">Side quests completed so far. Rewards were real.</p>
-      </header>
-      <ol class="quests">
-        <li class="quest reveal" data-tags="sec swe">
-          <div class="quest-lv"><span>LV</span><b>3</b></div>
-          <div class="quest-body">
-            <div class="quest-top">
-              <h3>Trainee Software Engineer, Security</h3>
-              <span class="card-sticker cs-mint quest-sticker" aria-hidden="true">🕵️ IDOR hunter</span>
-              <span class="pill pill-done">✓ quest complete</span>
-            </div>
-            <p class="quest-org">Sciqus Infotech Pvt. Ltd. · Pune · Jun – Jul 2026</p>
-            <div class="loot" aria-label="Rewards">
-              <span class="loot-item l-crit">🗝️ Critical: systemic IDOR across nearly all APIs</span>
-              <span class="loot-item l-high">🌐 Subdomain takeover, proven with a PoC</span>
-              <span class="loot-item">🧾 60+ findings, CVSS-rated, OWASP-mapped</span>
-            </div>
-            <ul class="ticks">
-              <li>Ran an independent VAPT engagement across the APIs of a multi-tenant production platform, validating some findings with direct SQL queries.</li>
-              <li>Used structured threat modelling to confirm account takeover, privilege escalation and session hijacking risk.</li>
-              <li>Wrote remediation reports with prioritised fixes for engineers, then re-tested every patched issue.</li>
-            </ul>
-            <ul class="keys" aria-label="Tools used"><li>Burp Suite Pro</li><li>OWASP ZAP</li><li>subfinder</li><li>FFuF</li><li>SQL</li></ul>
-            <div class="xp" aria-hidden="true"><i style="--w:100%"></i><span>XP 3,000 / 3,000</span></div>
-          </div>
-        </li>
-        <li class="quest reveal" data-tags="swe">
-          <div class="quest-lv lv2"><span>LV</span><b>2</b></div>
-          <div class="quest-body">
-            <div class="quest-top">
-              <h3>UI/UX and Web Development Intern</h3>
-              <span class="pill pill-done">✓ quest complete</span>
-            </div>
-            <p class="quest-org">Erfinden Technologies · Pune · Jun – Jul 2025</p>
-            <ul class="ticks">
-              <li>Designed and launched a responsive, accessibility-first e-commerce site for a luxury retail client on Squarespace AI.</li>
-            </ul>
-            <ul class="keys"><li>UI/UX</li><li>Accessibility</li><li>Responsive design</li></ul>
-            <div class="xp" aria-hidden="true"><i style="--w:100%"></i><span>XP 2,000 / 2,000</span></div>
-          </div>
-        </li>
-        <li class="quest reveal" data-tags="ml">
-          <div class="quest-lv lv1"><span>LV</span><b>1</b></div>
-          <div class="quest-body">
-            <div class="quest-top">
-              <h3>Remote Sensing Intern</h3>
-              <span class="pill pill-done">✓ quest complete</span>
-            </div>
-            <p class="quest-org">ARC Solutions · Pune · Jun – Jul 2024</p>
-            <ul class="ticks">
-              <li>Built Python classifiers on Sentinel-1 SAR satellite imagery in Google Earth Engine for flood detection and water-body mapping.</li>
-            </ul>
-            <ul class="keys"><li>Python</li><li>Google Earth Engine</li><li>SAR imagery</li></ul>
-            <div class="xp" aria-hidden="true"><i style="--w:100%"></i><span>XP 1,000 / 1,000</span></div>
-          </div>
-        </li>
-        <li class="quest quest-next reveal">
-          <div class="quest-lv lv4"><span>LV</span><b>4</b></div>
-          <div class="quest-body">
-            <div class="quest-top">
-              <h3>Your team?</h3>
-              <span class="pill pill-open">◌ quest available</span>
-            </div>
-            <p class="quest-org">Security · Software engineering · ML</p>
-            <a class="btn btn-ink btn-sm" href="#contact">Accept quest →</a>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- ========== PROJECTS / CARDS ========== -->
-    <section id="projects" class="section" aria-labelledby="projects-h">
-      <header class="sec-head">
-        <p class="sec-kicker">chapter 04 · building the defence</p>
-        <h2 id="projects-h">Collect all 4</h2>
-        <p class="chap-intro">Finding bugs one at a time doesn't scale. So I build tools that catch them automatically and keep people's data from leaking.</p>
-        <p class="sec-sub">Best first. Open any project for the full card, then tap it to flip for the details.</p>
-      </header>
-      <ul class="pindex" aria-label="Projects. Choose one to open its card.">
-        <li data-tags="sec swe"><button type="button" class="prow" data-card="0" style="--fill: var(--mint)">
-          <span class="prow-num">01</span><span class="prow-title">VulnScan Pro</span><span class="prow-tag">solo · security tool</span><span class="prow-live"><span class="live-dot" aria-hidden="true"></span> live demo</span>
-          <span class="prow-result">Web vulnerability scanner, live on AWS. <b>15 security checks</b>, A to F grading, <b>52 tests</b> running in CI.</span>
-          <span class="prow-cta" aria-hidden="true">deal the card ↗</span><span class="prow-pop" aria-hidden="true">🛡️</span>
-        </button></li>
-        <li data-tags="ml sec"><button type="button" class="prow" data-card="1" style="--fill: var(--lilac)">
-          <span class="prow-num">02</span><span class="prow-title">SAGE</span><span class="prow-tag">team · ML × security</span>
-          <span class="prow-result">Stops secrets leaking into AI chatbots. My ML detector scores <b>0.89 F1 vs 0.69</b> for the best baseline, fully in the browser.</span>
-          <span class="prow-cta" aria-hidden="true">deal the card ↗</span><span class="prow-pop" aria-hidden="true">🧠</span>
-        </button></li>
-        <li data-tags="sec ml swe"><button type="button" class="prow" data-card="2" style="--fill: var(--peach)">
-          <span class="prow-num">03</span><span class="prow-title">MedSentry</span><span class="prow-tag">capstone · health security</span>
-          <span class="prow-result">Flags hospital device messages that are valid but medically impossible. I built a <b>3,395-message</b> test set and scored it against <b>5 baselines</b>.</span>
-          <span class="prow-cta" aria-hidden="true">deal the card ↗</span><span class="prow-pop" aria-hidden="true">🫀</span>
-        </button></li>
-        <li data-tags="ml sec"><button type="button" class="prow" data-card="3" style="--fill: var(--sky)">
-          <span class="prow-num">04</span><span class="prow-title">Federated IDS</span><span class="prow-tag">research · IoT × ML</span>
-          <span class="prow-result">Intrusion detection trained without sharing raw traffic. <b>90%+ accuracy</b> on unseen networks vs 25 to 40% for centralised models, across <b>11M+ samples</b>.</span>
-          <span class="prow-cta" aria-hidden="true">deal the card ↗</span><span class="prow-pop" aria-hidden="true">📡</span>
-        </button></li>
-      </ul>
-      <div class="cards deck" hidden>
-        <!-- VulnScan -->
-        <article class="pcard reveal" data-tags="sec swe" aria-labelledby="c1">
-          <div class="pcard-inner">
-            <div class="pcard-face pcard-front holo c-mint">
-              <div class="pcard-head"><span class="ptype">🛡️ Security tool</span><span class="prare">★★★ solo</span></div>
-              <h3 id="c1">VulnScan Pro</h3>
-              <a class="live-link" href="https://reeshita-vulnscan.duckdns.org" target="_blank" rel="noopener"><span class="live-dot" aria-hidden="true"></span> Live on AWS · try it ↗</a>
-              <div class="pcard-art art-img"><img src="assets/vulnscan-demo.gif" alt="VulnScan Pro demo: scan dashboard with an A to F grade, severity breakdown and OWASP mapping" loading="lazy" width="1280" height="720" /><span class="card-sticker cs-butter">✅ 52 tests passing</span></div>
-              <p class="pmove"><b>Special move:</b> crawls a site, runs 15 checks, grades it A–F.</p>
-              <dl class="pstats">
-                <div><dt>checks</dt><dd>15</dd></div>
-                <div><dt>tests in CI</dt><dd>52</dd></div>
-                <div><dt>grade</dt><dd>A–F</dd></div>
-              </dl>
-              <button type="button" class="flip-btn" aria-expanded="false">flip for details ↻</button>
-            </div>
-            <div class="pcard-face pcard-back">
-              <h4>VulnScan Pro</h4>
-              <dl class="pab">
-                <div><dt>Problem</dt><dd>Web apps ship with known, preventable flaws, and checking for them by hand doesn't scale.</dd></div>
-                <div><dt>What I did</dt><dd>Built 15 scanner modules (XSS, SQLi, CORS, CSRF, TLS, DNS and more), an A to F scoring engine and a Flask API with auth and rate limiting. SSRF-safe by design, with 52 tests running in CI.</dd></div>
-                <div><dt>Result</dt><dd>Every finding mapped to OWASP Top 10, CWE and CVSS, exportable as PDF, JSON or SARIF, and live on AWS for anyone to try.</dd></div>
-              </dl>
-              <ul class="keys small"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>Docker</li><li>GH Actions</li><li>AWS</li></ul>
-              <div class="pcard-links">
-                <a class="btn btn-ink btn-sm" href="https://reeshita-vulnscan.duckdns.org" target="_blank" rel="noopener">Try it live ↗</a>
-                <a class="btn btn-ghost btn-sm" href="https://github.com/reeshitakate01/VulnScan-Pro" target="_blank" rel="noopener">GitHub ↗</a>
-              </div>
-              <button type="button" class="flip-btn" aria-expanded="true">flip back ↺</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- SAGE -->
-        <article class="pcard reveal" data-tags="ml sec" aria-labelledby="c2">
-          <div class="pcard-inner">
-            <div class="pcard-face pcard-front holo c-lilac">
-              <div class="pcard-head"><span class="ptype">🧠 ML × Security</span><span class="prare">★★ team of 4</span></div>
-              <h3 id="c2">SAGE</h3>
-              <div class="pcard-art art-sage" aria-hidden="true">
-                <div class="prompt-box"><span>my api key is </span><span class="redact">sk-••••••••</span><span class="caret-blink">|</span></div>
-                <span class="blocked">🚫 blocked before send</span>
-                <span class="card-sticker cs-mint cs-top">🧠 0.89 F1 score</span>
-              </div>
-              <p class="pmove"><b>Special move:</b> stops secrets leaking into ChatGPT prompts, right in the browser.</p>
-              <dl class="pstats">
-                <div><dt>macro F1</dt><dd>0.89</dd></div>
-                <div><dt>baseline</dt><dd>0.69</dd></div>
-                <div><dt>runs</dt><dd>in-browser</dd></div>
-              </dl>
-              <button type="button" class="flip-btn" aria-expanded="false">flip for details ↻</button>
-            </div>
-            <div class="pcard-face pcard-back">
-              <h4>SAGE: browser-side DLP for GenAI</h4>
-              <dl class="pab">
-                <div><dt>Problem</dt><dd>People paste secrets and company data into AI chatbots, and traditional data-loss tools can't see it happen.</dd></div>
-                <div><dt>What I did</dt><dd>Owned the ML detector in a team of four: fine-tuned DistilBERT and exported it to ONNX so it runs inside the browser extension.</dd></div>
-                <div><dt>Result</dt><dd>0.89 macro F1 against 0.69 for the best baseline, and prompts never leave the device.</dd></div>
-              </dl>
-              <ul class="keys small"><li>PyTorch</li><li>Hugging Face</li><li>ONNX</li><li>Chrome MV3</li></ul>
-              <div class="pcard-links">
-                <a class="btn btn-ghost btn-sm" href="https://github.com/Shlok014/SAGE" target="_blank" rel="noopener">🔒 Private repo · ask me</a>
-              </div>
-              <button type="button" class="flip-btn" aria-expanded="true">flip back ↺</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- MedSentry -->
-        <article class="pcard reveal" data-tags="sec ml swe" aria-labelledby="c3">
-          <div class="pcard-inner">
-            <div class="pcard-face pcard-front holo c-peach">
-              <div class="pcard-head"><span class="ptype">🏥 Health security</span><span class="prare">★★ capstone</span></div>
-              <h3 id="c3">MedSentry</h3>
-              <div class="pcard-art art-ecg" aria-hidden="true">
-                <svg viewBox="0 0 300 80" preserveAspectRatio="none"><path class="ecg-line" d="M0 40 H50 L60 40 L68 22 L76 58 L84 40 H130 L138 40 L146 6 L154 74 L162 40 H210 L216 40 L222 30 L228 50 L234 40 H300"/></svg>
-                <span class="ecg-flag">⚠ HR 230? sus.</span>
-              </div>
-              <p class="pmove"><b>Special move:</b> catches hospital messages that are valid but medically impossible.</p>
-              <dl class="pstats">
-                <div><dt>patients</dt><dd>53</dd></div>
-                <div><dt>messages</dt><dd>3,395</dd></div>
-                <div><dt>baselines</dt><dd>5</dd></div>
-              </dl>
-              <button type="button" class="flip-btn" aria-expanded="false">flip for details ↻</button>
-            </div>
-            <div class="pcard-face pcard-back">
-              <h4>MedSentry: anomaly detection for medical devices</h4>
-              <dl class="pab">
-                <div><dt>Problem</dt><dd>Hospital systems accept device messages that are perfectly valid but clinically impossible, like forged vitals.</dd></div>
-                <div><dt>What I did</dt><dd>Owned the dataset and evaluation: a generator that turns open ICU data into HL7 streams, and a harness that scores the detector.</dd></div>
-                <div><dt>Result</dt><dd>A realistic test set of 53 patients and 3,395 messages, with the detector measured against five baselines.</dd></div>
-              </dl>
-              <ul class="keys small"><li>Python</li><li>HL7 v2</li><li>Docker</li><li>Evaluation</li></ul>
-              <div class="pcard-links">
-                <a class="btn btn-ghost btn-sm" href="https://github.com/Shlok014/medsentry" target="_blank" rel="noopener">🔒 Private repo · ask me</a>
-              </div>
-              <button type="button" class="flip-btn" aria-expanded="true">flip back ↺</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- FL-IDS -->
-        <article class="pcard reveal" data-tags="ml sec" aria-labelledby="c4">
-          <div class="pcard-inner">
-            <div class="pcard-face pcard-front holo c-sky">
-              <div class="pcard-head"><span class="ptype">📡 IoT × ML</span><span class="prare">★★★ personal</span></div>
-              <h3 id="c4">Federated IDS</h3>
-              <div class="pcard-art art-fl" aria-hidden="true">
-                <svg viewBox="0 0 200 110">
-                  <circle cx="100" cy="55" r="16" class="hub"/>
-                  <circle cx="30" cy="22" r="10" class="dev"/><circle cx="170" cy="22" r="10" class="dev"/>
-                  <circle cx="30" cy="90" r="10" class="dev"/><circle cx="170" cy="90" r="10" class="dev"/>
-                  <path class="link" d="M40 26 L86 48 M160 26 L114 48 M40 86 L86 62 M160 86 L114 62"/>
-                </svg>
-              </div>
-              <p class="pmove"><b>Special move:</b> learns to spot attacks while raw traffic never leaves the device.</p>
-              <dl class="pstats">
-                <div><dt>samples</dt><dd>11M+</dd></div>
-                <div><dt>accuracy</dt><dd>90%+</dd></div>
-                <div><dt>false pos.</dt><dd>&lt;1%</dd></div>
-              </dl>
-              <button type="button" class="flip-btn" aria-expanded="false">flip for details ↻</button>
-            </div>
-            <div class="pcard-face pcard-back">
-              <h4>Federated learning IDS for IoT</h4>
-              <dl class="pab">
-                <div><dt>Problem</dt><dd>Centralised intrusion detection needs everyone's raw traffic, and it breaks down on networks it hasn't seen.</dd></div>
-                <div><dt>What I did</dt><dd>Trained a multi-encoder DNN plus AutoEncoder with federated learning across three public IoT datasets (11M+ samples). Devices share model updates, never raw traffic.</dd></div>
-                <div><dt>Result</dt><dd>90%+ accuracy on unseen environments against 25 to 40% for centralised models, with under 1% false positives.</dd></div>
-              </dl>
-              <ul class="keys small"><li>TensorFlow</li><li>Federated learning</li><li>IoT</li></ul>
-              <p class="wip">🛠️ Code is being cleaned up. Not public yet.</p>
-              <button type="button" class="flip-btn" aria-expanded="true">flip back ↺</button>
-            </div>
-          </div>
-        </article>
-      </div>
-      <dialog class="card-dlg" id="cardDlg" aria-label="Project card">
-        <div class="card-slot" id="cardSlot"></div>
-        <div class="card-ctrl">
-          <button type="button" class="round-btn" id="cardPrev" aria-label="Previous project">←</button>
-          <button type="button" class="round-btn" id="cardFlip" aria-label="Flip card">↻</button>
-          <button type="button" class="round-btn" id="cardNext" aria-label="Next project">→</button>
-          <span class="card-count mono" id="cardCount">1 / 4</span>
-          <button type="button" class="round-btn" id="cardClose" aria-label="Close card">✕</button>
+        <div class="bv-how mono" id="bvHowBox" hidden>
+          <p><b>navigator.userAgent</b> · browser and system</p>
+          <p><b>Intl.DateTimeFormat</b> · time zone, so your rough region</p>
+          <p><b>document.referrer</b> · the page that linked here</p>
+          <p><b>screen</b> + <b>matchMedia</b> · size, pixel density, light or dark</p>
+          <p><b>navigator.hardwareConcurrency</b> · processor cores</p>
+          <p><b>navigator.language</b> · your language setting</p>
+          <p class="bv-how-note">No permission prompt, no cookies, no tracker. Real attackers combine these into a fingerprint.</p>
         </div>
-      </dialog>
+        <p class="bv-trust mono">worked out in your browser · nothing sent · nothing stored</p>
+      </aside>
+      <a class="scroll-cue mono" href="#about">begin the assessment <span aria-hidden="true">&darr;</span></a>
     </section>
 
-    <!-- ========== PLAY ========== -->
-    <section id="play" class="section" aria-labelledby="play-h">
-      <header class="sec-head">
-        <p class="sec-kicker">chapter 05 · your turn</p>
-        <h2 id="play-h">Take a break, hunt some bugs</h2>
-        <p class="chap-intro">Enough reading. Spend thirty seconds doing my job.</p>
-        <p class="sec-sub">Two tiny games, both about what I do all day. Mouse, touch or keyboard all work.</p>
-      </header>
-      <div class="arcade">
-        <!-- Bug Hunt -->
-        <article class="game" aria-labelledby="bh-h">
-          <div class="game-bar">
-            <h3 id="bh-h">🐛 Bug Hunt</h3>
-            <div class="game-hud"><span>score <b id="bhScore">0</b></span><span>time <b id="bhTime">20</b>s</span><span>best <b id="bhBest">0</b></span></div>
-          </div>
-          <p class="game-desc">A developer's daily job in 20 seconds: squash the bugs, keep the features.</p>
-          <div class="arena" id="arena">
-            <div class="arena-msg" id="arenaMsg">
-              <p class="arena-title">How to play 🎯</p>
-              <ul class="howto">
-                <li><span class="howto-ico" aria-hidden="true">🐛🐞</span><span><b>Click the bugs</b> crawling around the box to squash them. <b class="pts plus">+1</b></span></li>
-                <li><span class="howto-ico" aria-hidden="true">✨</span><span><b>Don't click the sparkles.</b> Those are features, not bugs! <b class="pts minus">−2</b></span></li>
-                <li><span class="howto-ico" aria-hidden="true">⏱️</span><span>You have <b>20 seconds</b>, and the bugs speed up as time runs out.</span></li>
-                <li><span class="howto-ico" aria-hidden="true">🏆</span><span>Get a rank at the end. Score <b>10+</b> to unlock an achievement.</span></li>
-              </ul>
-              <button type="button" class="btn btn-ink" id="bhStart">Start hunting</button>
-            </div>
-          </div>
-          <p class="sr-only" id="bhStatus" role="status" aria-live="polite"></p>
-        </article>
-
-        <!-- Spot the vuln -->
-        <article class="game" aria-labelledby="sv-h">
-          <div class="game-bar">
-            <h3 id="sv-h">🔎 Spot the Vuln</h3>
-            <div class="game-hud"><span>round <b id="svRound">1</b>/4</span><span>score <b id="svScore">0</b></span></div>
-          </div>
-          <p class="game-desc">Each round shows a short piece of code with one security hole. Read it, then <b>click the line you think is vulnerable</b>. I'll explain the answer and the fix.</p>
-          <div class="vuln">
-            <p class="vuln-q" id="svQ">Which line is vulnerable?</p>
-            <ol class="code" id="svCode" aria-label="Code snippet. Choose the vulnerable line."></ol>
-            <div class="vuln-fb" id="svFb" role="status" aria-live="polite"></div>
-            <button type="button" class="btn btn-ink btn-sm" id="svNext" hidden>Next round →</button>
-          </div>
-        </article>
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="sec-head">
+        <p class="kicker mono">phase 1 · recon</p>
+        <h2 id="about-h">About me</h2>
       </div>
-    </section>
-
-    <!-- ========== SKILLS ========== -->
-    <section id="skills" class="section" aria-labelledby="skills-h">
-      <header class="sec-head">
-        <p class="sec-kicker">chapter 06 · the toolkit</p>
-        <h2 id="skills-h">My keyboard</h2>
-        <p class="chap-intro">Everything I've picked up along the way, from attacking systems to building them to training models.</p>
-        <p class="sec-sub">Go on, press a few keys.</p>
-      </header>
-      <div class="keyboard">
-        <div class="krow reveal" data-tags="sec"><span class="krow-label">security</span><ul class="keys big"><li>VAPT</li><li>OWASP Top 10</li><li>Threat modelling</li><li>Burp Suite Pro</li><li>OWASP ZAP</li><li>CVSS</li><li>subfinder</li><li>FFuF</li></ul></div>
-        <div class="krow reveal" data-tags="swe"><span class="krow-label">backend &amp; devops</span><ul class="keys big"><li>REST APIs</li><li>Flask</li><li>SQLAlchemy</li><li>Docker</li><li>Git</li><li>GitHub Actions</li><li>pytest</li><li>Linux</li><li>AWS EC2</li></ul></div>
-        <div class="krow reveal" data-tags="ml"><span class="krow-label">ml &amp; ai</span><ul class="keys big"><li>PyTorch</li><li>TensorFlow</li><li>Hugging Face</li><li>ONNX</li><li>pandas</li><li>Federated learning</li></ul></div>
-        <div class="krow reveal" data-tags="swe"><span class="krow-label">languages &amp; cs</span><ul class="keys big"><li>Python</li><li>Java</li><li>SQL</li><li>C</li><li>HTML/CSS</li><li>OOP</li><li>DSA</li><li>DBMS</li><li>Networks</li></ul></div>
-      </div>
-
-      <h3 class="badges-h">Badges collected</h3>
-      <ul class="badges">
-        <li class="badge b1 reveal" data-tags="sec"><span class="badge-coin">ISC2</span><span class="badge-name">Certified in Cybersecurity (CC)</span></li>
-        <li class="badge b2 reveal" data-tags="sec swe"><span class="badge-coin">AWS</span><span class="badge-name">AWS Security Fundamentals</span></li>
-        <li class="badge b3 reveal" data-tags="sec"><span class="badge-coin">IBM</span><span class="badge-name">SOC in Practice</span></li>
-        <li class="badge b4 reveal" data-tags="sec"><span class="badge-coin">Cisco</span><span class="badge-name">Intermediate Ethical Hacker</span></li>
-        <li class="badge b5 reveal" data-tags="sec"><span class="badge-coin">Cisco</span><span class="badge-name">Cybersecurity Fundamentals</span></li>
-        <li class="badge b6 reveal" data-tags="swe ml"><span class="badge-coin">Cisco</span><span class="badge-name">Python Essentials</span></li>
-      </ul>
-    </section>
-
-    <!-- ========== CHAPTER 07: OFF THE CLOCK ========== -->
-    <section id="offclock" class="section" aria-labelledby="off-h">
-      <header class="sec-head">
-        <p class="sec-kicker">chapter 07 · off the clock</p>
-        <h2 id="off-h">When I log off</h2>
-        <p class="chap-intro">Security means a lot of screens and a lot of thinking like an attacker. Here's how I reset.</p>
-      </header>
-      <ul class="hobbies">
-        <li class="hobby hb-dance reveal"><span class="hob-ico" aria-hidden="true">💃</span><b>Dancing</b><small>music on, laptop closed</small></li>
-        <li class="hobby hb-swim reveal"><span class="hob-ico" aria-hidden="true">🏊</span><b>Swimming</b><small>no notifications underwater</small></li>
-        <li class="hobby hb-travel reveal"><span class="hob-ico" aria-hidden="true">✈️</span><b>Traveling</b><small>new places, new perspectives</small></li>
-        <li class="hobby hb-zen reveal"><span class="hob-ico" aria-hidden="true">🧘</span><b>Yoga &amp; meditation</b><small>the original focus mode</small></li>
-        <li class="hobby hb-tt reveal"><span class="hob-ico" aria-hidden="true">🏓</span><b>Table tennis</b><small>quick reflexes, friendly rivalry</small></li>
-      </ul>
-    </section>
-
-    <!-- ========== EPILOGUE: WHAT'S NEXT ========== -->
-    <section id="next" class="section" aria-labelledby="next-h">
-      <header class="sec-head">
-        <p class="sec-kicker">epilogue · what's next</p>
-        <h2 id="next-h">The next chapter</h2>
-      </header>
-      <div class="next-grid">
-        <blockquote class="motto reveal">
-          <p>“I watched how easy it was for an attacker. <mark>Now I make it hard.</mark>”</p>
-          <cite>me, ever since that phone call</cite>
-        </blockquote>
-        <div class="next-body reveal">
-          <h3>What drives me</h3>
-          <ul class="drive">
-            <li><span aria-hidden="true">🛡️</span><p><b>Protecting real people.</b> Behind every bug is someone's account and someone's data.</p></li>
-            <li><span aria-hidden="true">🤖</span><p><b>AI × security.</b> Securing AI systems, and using AI to catch what rules miss.</p></li>
+      <div class="about">
+        <div class="about-story">
+          <ol class="story">
+            <li>
+              <p class="story-k mono">before</p>
+              <p>A scam reached someone close to me, and it worked far too easily. I couldn't stop asking how, and what would make it fail. That question led me to cybersecurity.</p>
+            </li>
+            <li>
+              <p class="story-k mono">now</p>
+              <p>I'm a final-year B.Tech Computer Science (Cybersecurity) student in Pune with a CGPA of 8.9. I've already assessed a production platform's APIs during an internship, built a scanner that's live on AWS, and trained ML models that catch what rules miss. I like owning a problem end to end, from finding it to fixing it to making sure it stays fixed.</p>
+              <p>Off screen, I'm dancing, swimming, travelling or playing table tennis.</p>
+            </li>
+            <li>
+              <p class="story-k mono">next</p>
+              <p>A security team where I can test, build and automate. Security engineering and AppSec first, with AI security close behind. I learn fast, and I'm ready to be useful from week one.</p>
+            </li>
+          </ol>
+          <blockquote class="motto">&ldquo;I watched how easy it was for an attacker. <mark>Now I make it hard.</mark>&rdquo;</blockquote>
+          <ul class="facts mono">
+            <li>ISC2 Certified in Cybersecurity</li>
+            <li>Cisco Ethical Hacker</li>
+            <li>IBM SOC in Practice</li>
+            <li>AWS Security Fundamentals</li>
+            <li>CGPA 8.9</li>
           </ul>
-          <h3>Where I'm headed</h3>
-          <p>I lean toward <b>security engineering</b>, building security into products and tools from the inside. But AppSec, offensive security and AI security all pull at me, so I'm keeping every door open and learning fast.</p>
-          <div class="paths"><span class="lead-path">★ security engineering</span><span>AppSec</span><span>offensive security</span><span>AI security</span></div>
+        </div>
+
+        <!-- spot the scam -->
+        <div class="phish-wrap">
+          <div class="phone dark" id="phone" data-found="0">
+            <div class="ph-notch" aria-hidden="true"></div>
+            <div class="ph-head">
+              <span class="ph-avatar mono" aria-hidden="true">?</span>
+              <div><button type="button" class="flag ph-from mono" data-flag="0">+44 7700 900123</button><span class="ph-sub mono">text message · now</span></div>
+            </div>
+            <div class="ph-msg">
+              Dear customer, your account will be <button type="button" class="flag" data-flag="1">BLOCKED today at 6 PM</button>. Update your KYC now: <button type="button" class="flag ph-link mono" data-flag="2">yourbank-kyc-help.co/verify</button> and <button type="button" class="flag" data-flag="3">reply with the OTP</button> we just sent you.
+            </div>
+            <ol class="ph-found" id="phFound" aria-live="polite"></ol>
+            <div class="ph-done" id="phDone">
+              <p><b>4 of 4. You think like a defender.</b></p>
+              <p>Blocking these takes sender verification, link scanning and training. That's the kind of protection I want to build.</p>
+              <button type="button" class="pill pill-dark" id="phReset">Try again</button>
+            </div>
+          </div>
+          <div class="phish-cap">
+            <p class="phish-h">Spot the scam</p>
+            <p>Messages like this are why I do what I do. Tap the <b id="phLeft">4</b> red flags.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== CONTACT ========== -->
-    <section id="contact" class="section" aria-labelledby="contact-h">
-      <div class="contact reveal">
-        <p class="sec-kicker">the end (for now) · contact</p>
-        <h2 id="contact-h">Let's build <span class="strike">(or break)</span> something together.</h2>
-        <p>Hiring for security, software engineering or ML? My inbox is open, and I answer faster than a port scan.</p>
-        <div class="contact-ctas">
-          <button type="button" class="btn btn-ink btn-lg" id="planeBtn"><span class="plane" aria-hidden="true">✈️</span> Send me a paper plane</button>
-          <button type="button" class="btn btn-pastel btn-lg" id="copyBtn">Copy email</button>
+    <!-- ================= WHAT I CAN DO ================= -->
+    <section class="section" id="skills" aria-labelledby="can-h">
+      <div class="sec-head">
+        <p class="kicker mono">phase 2 · scan</p>
+        <h2 id="can-h">What I can do for your team</h2>
+        <p class="sec-sub">Early in my career, but not new to the work. Every skill below points to where I've already done it.</p>
+      </div>
+      <div class="can">
+        <article class="card can-card reveal">
+          <p class="can-n mono">01</p>
+          <h3>Test web apps and APIs</h3>
+          <p>Login working isn't the question. I check whether each user can reach only what's theirs, across every endpoint and role, along with injection and misconfiguration. Always within agreed scope, with safe proof-of-concepts.</p>
+          <p class="proof mono">proof: <a href="#experience">security internship</a> · <a href="#work">VulnScan Pro</a></p>
+        </article>
+        <article class="card can-card reveal">
+          <p class="can-n mono">02</p>
+          <h3>Write findings engineers act on</h3>
+          <p>A finding only matters if it gets fixed, so I write for the engineer who has to fix it: CVSS severity, OWASP mapping, the exact change, and a re-test once it's patched.</p>
+          <p class="proof mono">proof: <a href="#experience">internship reports</a> · <a href="#work">VulnScan PDF / SARIF export</a></p>
+        </article>
+        <article class="card can-card reveal">
+          <p class="can-n mono">03</p>
+          <h3>Build security tools</h3>
+          <p>When I catch myself checking the same thing twice, it becomes a test or a tool. Python, Flask, SQL and Docker, with CI from the first commit.</p>
+          <p class="proof mono">proof: <a href="#work">VulnScan Pro, live on AWS, 52 tests</a></p>
+        </article>
+        <article class="card can-card reveal">
+          <p class="can-n mono">04</p>
+          <h3>Use ML for detection</h3>
+          <p>I don't trust accuracy on its own, so every model I build is compared against baselines and tested on data it has never seen, from transformers to autoencoders and federated learning.</p>
+          <p class="proof mono">proof: <a href="#work">SAGE · Federated IDS · MedSentry</a></p>
+        </article>
+        <article class="card can-card reveal">
+          <p class="can-n mono">05</p>
+          <h3>Work with teams and clients</h3>
+          <p>I explain risk in the other person's terms. I owned the ML in a team of four, delivered a live site for a client, and wrote fixes engineers could act on.</p>
+          <p class="proof mono">proof: <a href="#work">SAGE</a> · <a href="#experience">web and security internships</a></p>
+        </article>
+        <article class="card can-card reveal">
+          <p class="can-n mono">06</p>
+          <h3>Learn new ground fast</h3>
+          <p>Three internships in three different fields and six certifications. With anything new, I get a small version working first, then go deeper.</p>
+          <p class="proof mono">proof: ISC2 CC · Cisco Ethical Hacker · IBM SOC · AWS Security</p>
+        </article>
+      </div>    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section" id="experience" aria-labelledby="exp-h">
+      <div class="sec-head">
+        <p class="kicker mono">phase 3 · test</p>
+        <h2 id="exp-h">Experience</h2>
+        <p class="sec-sub">Three internships, most recent first. Each one added something I use in security work.</p>
+      </div>
+      <div class="exp">
+        <article class="card exp-card reveal">
+          <div class="exp-vis dark vis-api" aria-hidden="true">
+            <p class="vis-h mono">api assessment</p>
+            <ul class="api mono">
+              <li><b>GET</b> /users/me <i class="ok">200</i></li>
+              <li class="bad"><b>GET</b> /orders/{id} <i>200 &rarr; 403</i></li>
+              <li><b>POST</b> /login <i class="ok">200</i></li>
+              <li class="bad"><b>PUT</b> /users/{id} <i>200 &rarr; 403</i></li>
+              <li><b>GET</b> /health <i class="ok">200</i></li>
+            </ul>
+          </div>
+          <p class="exp-when mono">2026 · Jun–Jul · Pune</p>
+          <h3>Trainee Software Engineer, Security</h3>
+          <p class="exp-org">Sciqus Infotech Pvt. Ltd.</p>
+          <dl class="rows">
+            <div><dt class="mono">scope</dt><dd>APIs of a multi-tenant production platform</dd></div>
+            <div><dt class="mono">what I did</dt><dd>Ran an independent VAPT. I started by mapping who the users were and which data belonged to whom, then tested every endpoint against one question: what if the wrong person asks? Safe proof-of-concepts only</dd></div>
+            <div><dt class="mono">impact</dt><dd>Critical access-control issues reported with prioritised fixes, each re-tested after the patch</dd></div>
+            <div><dt class="mono">tools</dt><dd>Burp Suite Pro · OWASP ZAP · subfinder · FFuF · SQL · CVSS</dd></div>
+            <div class="why"><dt class="mono">why it counts</dt><dd>The real AppSec workflow, end to end, on a live system with real users.</dd></div>
+          </dl>
+        </article>
+        <article class="card exp-card reveal">
+          <div class="exp-vis dark vis-web" aria-hidden="true">
+            <p class="vis-h mono">accessibility audit</p>
+            <div class="wire"><i class="w-nav"></i><i class="w-hero"></i><i class="w-a"></i><i class="w-b"></i><i class="w-c"></i></div>
+            <p class="checks mono"><span>contrast ✓</span><span>keyboard ✓</span><span>alt text ✓</span></p>
+          </div>
+          <p class="exp-when mono">2025 · Jun–Jul · Pune</p>
+          <h3>UI/UX and Web Development Intern</h3>
+          <p class="exp-org">Erfinden Technologies</p>
+          <dl class="rows">
+            <div><dt class="mono">scope</dt><dd>E-commerce site for a luxury retail client</dd></div>
+            <div><dt class="mono">what I did</dt><dd>Designed for the slowest phone and the keyboard-only visitor first, then built it responsive and accessibility-first, from wireframes to launch</dd></div>
+            <div><dt class="mono">impact</dt><dd>Launched for the client, built to work on phones and with a keyboard</dd></div>
+            <div><dt class="mono">tools</dt><dd>UI/UX · accessibility · responsive design · Squarespace</dd></div>
+            <div class="why"><dt class="mono">why it counts</dt><dd>I know how web front ends are built and shipped, which is where many attacks begin, and I've delivered to a real client.</dd></div>
+          </dl>
+        </article>
+        <article class="card exp-card reveal">
+          <div class="exp-vis dark vis-map" aria-hidden="true">
+            <p class="vis-h mono">sentinel-1 · flood map</p>
+            <svg viewBox="0 0 200 100" preserveAspectRatio="none"><path class="river" d="M10 0 C 40 30, 70 40, 90 56"/><path class="water" d="M0 70 C 30 60, 50 80, 80 66 S 130 50, 160 64 S 190 70, 200 60 V100 H0z"/><path class="flood" d="M60 60 C 80 38, 110 42, 122 56 C 112 70, 80 74, 60 60z"/></svg>
+            <p class="checks mono"><span class="c-water">water</span><span class="c-flood">new flooding</span></p>
+          </div>
+          <p class="exp-when mono">2024 · Jun–Jul · Pune</p>
+          <h3>Remote Sensing Intern</h3>
+          <p class="exp-org">ARC Solutions</p>
+          <dl class="rows">
+            <div><dt class="mono">scope</dt><dd>Flood detection and water-body mapping from satellite radar</dd></div>
+            <div><dt class="mono">what I did</dt><dd>Built Python classifiers on Sentinel-1 SAR imagery in Google Earth Engine, and studied where they went wrong, since water and wet ground can look alike on radar</dd></div>
+            <div><dt class="mono">impact</dt><dd>Flood and water-body maps from radar, which works even through cloud cover</dd></div>
+            <div><dt class="mono">tools</dt><dd>Python · Google Earth Engine · SAR imagery · classification</dd></div>
+            <div class="why"><dt class="mono">why it counts</dt><dd>Building and evaluating classifiers on messy real-world data, the same skills behind ML threat detection.</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS: SCROLL-PLAYED SCENES ================= -->
+    <section class="section" id="work" aria-labelledby="work-h">
+      <div class="sec-head">
+        <p class="kicker mono">phase 4 · prove</p>
+        <h2 id="work-h">Projects</h2>
+        <p class="sec-sub">Finding bugs one by one doesn't scale, so I build tools that catch them. Scroll, and each one runs on the left.</p>
+      </div>
+
+      <div class="scenes" id="scenes">
+        <div class="stage-col">
+          <div class="stage dark" id="stage">
+            <!-- 1 VulnScan -->
+            <div class="scene sc-vuln" data-scene="0">
+              <div class="sc-head mono"><span>vulnscan pro</span><span class="sc-target">scanning demo-shop.test</span></div>
+              <div class="vs-grid">
+                <ul class="vs-checks mono" id="vsChecks">
+                  <li data-bad="1">SQL injection</li><li>XSS (reflected)</li><li data-bad="1">CORS policy</li><li>CSRF tokens</li>
+                  <li data-bad="1">security headers</li><li>TLS config</li><li>open redirect</li><li>DNS / email (SPF)</li>
+                </ul>
+                <div class="vs-grade">
+                  <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50" class="ring-bg"/><circle cx="60" cy="60" r="50" class="ring" id="vsRing"/></svg>
+                  <b id="vsGrade">–</b>
+                  <span class="mono" id="vsPhase">scanning</span>
+                </div>
+              </div>
+              <div class="vs-ci mono" id="vsCi"><span class="ci-dot"></span>CI: 52 / 52 tests passing</div>
+            </div>
+            <!-- 2 SAGE -->
+            <div class="scene sc-sage" data-scene="1">
+              <div class="sc-head mono"><span>sage · browser extension</span><span class="sc-target">chat.example-ai.test</span></div>
+              <div class="chat">
+                <p class="chat-label mono">your message</p>
+                <p class="chat-box"><span id="sgText"></span><span class="sg-secret" id="sgSecret"></span><span class="caret" aria-hidden="true"></span></p>
+                <div class="sg-block mono" id="sgBlock"><b>blocked before send</b> · API key detected · checked on your device, nothing uploaded</div>
+              </div>
+              <div class="bars">
+                <div class="bar"><span class="mono">SAGE model</span><i style="--w:.89" class="b-a"></i><b class="mono">0.89 F1</b></div>
+                <div class="bar"><span class="mono">best baseline</span><i style="--w:.69" class="b-b"></i><b class="mono">0.69</b></div>
+              </div>
+            </div>
+            <!-- 3 MedSentry -->
+            <div class="scene sc-med" data-scene="2">
+              <div class="sc-head mono"><span>medsentry</span><span class="sc-target">ICU bed 7 · HL7 stream</span></div>
+              <div class="ecg">
+                <svg viewBox="0 0 400 140" preserveAspectRatio="none" aria-hidden="true">
+                  <path class="ecg-grid" d="M0 35H400M0 70H400M0 105H400"/>
+                  <path class="ecg-line" id="ecgLine" pathLength="1" d="M0 80 L30 80 L38 70 L46 92 L54 40 L62 100 L70 80 L110 80 L118 70 L126 92 L134 40 L142 100 L150 80 L190 80 L198 70 L206 92 L214 40 L222 100 L230 80 L262 80 L268 70 L272 96 L276 8 L280 116 L284 76 L292 80 L330 80 L338 70 L346 92 L354 40 L362 100 L370 80 L400 80"/>
+                </svg>
+                <div class="ecg-hr mono"><span>HR</span><b id="ecgHr">72</b></div>
+                <div class="ecg-flag mono" id="ecgFlag"><b>flagged</b> HR 230 · valid HL7 format · clinically impossible</div>
+              </div>
+              <dl class="minis mono"><div><dt>patients</dt><dd>53</dd></div><div><dt>messages</dt><dd>3,395</dd></div><div><dt>baselines</dt><dd>5</dd></div></dl>
+            </div>
+            <!-- 4 Federated IDS -->
+            <div class="scene sc-ids" data-scene="3">
+              <div class="sc-head mono"><span>federated ids</span><span class="sc-target">round <b id="flRound">1</b> of 3</span></div>
+              <svg class="fl" viewBox="0 0 400 210" aria-hidden="true">
+                <path class="fl-edge" id="flE0" d="M70 160 C 110 110, 160 70, 200 50"/>
+                <path class="fl-edge" id="flE1" d="M200 170 L200 62"/>
+                <path class="fl-edge" id="flE2" d="M330 160 C 290 110, 240 70, 200 50"/>
+                <g class="fl-server"><rect x="150" y="20" width="100" height="40" rx="12"/><text x="200" y="45">global model</text></g>
+                <g class="fl-dev"><rect x="22" y="160" width="96" height="38" rx="11"/><text x="70" y="183">home IoT</text></g>
+                <g class="fl-dev"><rect x="152" y="170" width="96" height="38" rx="11"/><text x="200" y="193">factory</text></g>
+                <g class="fl-dev"><rect x="282" y="160" width="96" height="38" rx="11"/><text x="330" y="183">hospital</text></g>
+                <g id="flPkts"></g>
+              </svg>
+              <p class="fl-note mono"><span class="lock-chip">raw traffic stays on the device</span> only model updates travel</p>
+              <div class="bars">
+                <div class="bar"><span class="mono">federated, unseen nets</span><i style="--w:.9" class="b-a"></i><b class="mono">90%+</b></div>
+                <div class="bar"><span class="mono">centralised</span><i style="--w:.33" class="b-c"></i><b class="mono">25–40%</b></div>
+              </div>
+            </div>
+            <div class="stage-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </div>
         </div>
-        <p class="email-line mono">reeshitakate01@gmail.com</p>
-        <ul class="socials">
-          <li><a href="https://www.linkedin.com/in/reeshitakate/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-          <li><a href="https://github.com/reeshitakate01" target="_blank" rel="noopener">GitHub ↗</a></li>
-          <li><a href="assets/Reeshita_Kate_Resume.pdf" download>Resume PDF ↓</a></li>
-        </ul>
-        <p class="sr-only" id="copyStatus" role="status" aria-live="polite"></p>
+
+        <div class="steps">
+          <article class="step" data-step="0" aria-labelledby="p1">
+            <p class="kicker mono">project 01 · solo · <span class="live"><i></i>live on AWS</span></p>
+            <h3 id="p1">VulnScan Pro</h3>
+            <p class="step-lede">A web vulnerability scanner that crawls a site, runs 15 security checks and grades it A to F.</p>
+            <dl class="pwr">
+              <div><dt class="mono">problem</dt><dd>Web apps ship with known, preventable flaws, and checking by hand doesn't scale.</dd></div>
+              <div><dt class="mono">what I built</dt><dd>15 scanner modules (XSS, SQLi, CORS, CSRF, TLS, DNS and more), a scoring engine and a Flask API with auth and rate limiting. A scanner is only useful if people trust it, so I kept false alarms low, made it SSRF-safe and tied every finding to a fix.</dd></div>
+              <div><dt class="mono">result</dt><dd>Findings mapped to OWASP Top 10, CWE and CVSS, exported as PDF, JSON or SARIF. 52 tests run on every push.</dd></div>
+            </dl>
+            <p class="stack mono">Python · Flask · SQLAlchemy · Docker · GitHub Actions · AWS</p>
+            <div class="links"><a class="btn btn-sm btn-ink" href="https://reeshita-vulnscan.duckdns.org/" target="_blank" rel="noopener">Try it live</a><a class="btn btn-sm" href="https://github.com/reeshitakate01/VulnScan-Pro" target="_blank" rel="noopener">Source</a></div>
+          </article>
+          <article class="step" data-step="1" aria-labelledby="p2">
+            <p class="kicker mono">project 02 · team of 4 · I owned the ML</p>
+            <h3 id="p2">SAGE</h3>
+            <p class="step-lede">A browser extension that stops people pasting secrets into AI chatbots, before the message is sent.</p>
+            <dl class="pwr">
+              <div><dt class="mono">problem</dt><dd>People paste API keys and company data into chatbots, and traditional data-loss tools can't see it.</dd></div>
+              <div><dt class="mono">what I built</dt><dd>The detector. The safest place to stop a leak is before it leaves the device, so I fine-tuned DistilBERT and exported it to ONNX, small enough to run inside the extension.</dd></div>
+              <div><dt class="mono">result</dt><dd>0.89 macro F1 against 0.69 for the best baseline, and prompts never leave the device.</dd></div>
+            </dl>
+            <p class="stack mono">PyTorch · Hugging Face · ONNX · Chrome MV3</p>
+            <p class="private mono">team repo is private · happy to walk through the code in an interview</p>
+          </article>
+          <article class="step" data-step="2" aria-labelledby="p3">
+            <p class="kicker mono">project 03 · capstone · health security</p>
+            <h3 id="p3">MedSentry</h3>
+            <p class="step-lede">Flags hospital device messages that are perfectly valid, but medically impossible.</p>
+            <dl class="pwr">
+              <div><dt class="mono">problem</dt><dd>Hospital systems accept forged vitals as long as the message format is correct.</dd></div>
+              <div><dt class="mono">what I built</dt><dd>The dataset and evaluation. Real attacks pass format checks, so I built a generator that turns open ICU data into HL7 streams that look valid but are medically impossible, and a harness that scores the detector.</dd></div>
+              <div><dt class="mono">result</dt><dd>A realistic test set of 53 patients and 3,395 messages, scored against 5 baselines.</dd></div>
+            </dl>
+            <p class="stack mono">Python · HL7 v2 · Docker · evaluation</p>
+            <p class="private mono">team repo is private · happy to walk through the code in an interview</p>
+          </article>
+          <article class="step" data-step="3" aria-labelledby="p4">
+            <p class="kicker mono">project 04 · research · IoT × ML</p>
+            <h3 id="p4">Federated IDS</h3>
+            <p class="step-lede">Intrusion detection that learns from many networks without anyone sharing their raw traffic.</p>
+            <dl class="pwr">
+              <div><dt class="mono">problem</dt><dd>Centralised detection needs everyone's traffic, and breaks on networks it hasn't seen.</dd></div>
+              <div><dt class="mono">what I built</dt><dd>Hospitals and factories won't share raw traffic, so the model goes to the data: a multi-encoder DNN plus autoencoder, trained with federated learning across three public IoT datasets (11M+ samples).</dd></div>
+              <div><dt class="mono">result</dt><dd>90%+ accuracy on unseen networks against 25–40% for centralised models, under 1% false positives.</dd></div>
+            </dl>
+            <p class="stack mono">TensorFlow · federated learning · IoT datasets</p>
+            <p class="private mono">code is being cleaned up for a public release</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="skills reveal">
+        <div><p class="mono kicker">security</p><p>VAPT · OWASP Top 10 · threat modelling · Burp Suite Pro · ZAP · CVSS</p></div>
+        <div><p class="mono kicker">build</p><p>Python · Flask · SQL · Docker · GitHub Actions · AWS · Linux</p></div>
+        <div><p class="mono kicker">ml &amp; ai</p><p>PyTorch · TensorFlow · Hugging Face · ONNX · federated learning</p></div>
+        <div><p class="mono kicker">languages</p><p>Python · Java · SQL · C · HTML/CSS</p></div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section contact" id="contact" aria-labelledby="contact-h">
+      <div class="contact-card">
+        <p class="kicker mono">phase 5 · report</p>
+        <h2 id="contact-h">Let's talk</h2>
+        <p class="sec-sub">Hiring for a security internship or a full-time role from 2027, in Pune or remote? I usually reply within a day, and I'm happy to walk you through any project or finding in an interview.</p>
+        <div class="contact-row">
+          <button type="button" class="btn btn-ink btn-lg mono" id="copyEmail">reeshitakate01@gmail.com</button>
+          <a class="btn btn-lg" href="https://www.linkedin.com/in/reeshitakate/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-lg" href="https://github.com/reeshitakate01" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-lg" href="assets/Reeshita_Kate_Resume.pdf" download>Resume</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer" id="footer">
-    <p>© <span id="yr">2026</span> Reeshita Kate · handmade, no trackers</p>
-    <p class="mono psst">psst: ↑ ↑ ↓ ↓ ← → ← → B A</p>
-    <button type="button" class="bug-toggle mono" id="bugToggle" aria-pressed="true">🐞 cursor bug: on</button>
+  <footer class="footer mono">
+    <p>© 2026 Reeshita Kate · built by hand, no frameworks</p>
+    <p>No analytics, trackers, cookies or forms. Fonts from Google Fonts; everything else, including the shader library, is served from this site.</p>
   </footer>
 
-  <!-- achievements -->
-  <dialog id="achDlg" aria-labelledby="achTitle">
-    <div class="dlg-head">
-      <h2 id="achTitle">🏆 Achievements</h2>
-      <button type="button" class="dlg-x" id="achClose" aria-label="Close achievements">✕</button>
+  <!-- ================= 30-SECOND VIEW ================= -->
+  <dialog class="skim" id="skim" aria-labelledby="skim-h">
+    <div class="skim-head">
+      <h2 id="skim-h">The 30-second version</h2>
+      <button type="button" class="btn btn-sm" id="skimClose">Close</button>
     </div>
-    <p class="muted dlg-sub">Things you can unlock around the site. No pressure. (Some pressure.)</p>
-    <ul class="ach-list" id="achList"></ul>
+    <p class="skim-q mono">I'm hiring for</p>
+    <div class="skim-tabs" role="tablist" aria-label="Role">
+      <button type="button" role="tab" class="skim-tab" data-role="sec" aria-selected="true">Security</button>
+      <button type="button" role="tab" class="skim-tab" data-role="swe" aria-selected="false" tabindex="-1">Software engineering</button>
+      <button type="button" role="tab" class="skim-tab" data-role="ml" aria-selected="false" tabindex="-1">ML / AI</button>
+    </div>
+    <ul class="skim-list" id="skimList" role="tabpanel"></ul>
+    <p class="skim-base mono">B.Tech CS (Cybersecurity) · CGPA 8.9 · graduating Aug 2027 · internships now, full-time from 2027 · Pune or remote</p>
+    <div class="skim-ctas">
+      <a class="btn btn-ink" href="assets/Reeshita_Kate_Resume.pdf" download>Download resume</a>
+      <a class="btn" href="mailto:reeshitakate01@gmail.com">Email me</a>
+    </div>
   </dialog>
-  <div class="toasts" id="toasts" aria-live="polite"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
-  <script src="main.js?v=67" defer></script>
-  <script src="cursor.js?v=67" defer></script>
-  <script type="importmap">
-    { "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-    } }
-  </script>
-  <!-- 3D padlock (embedded so it also works from file://) -->
-  <script type="module">
-import * as THREE from 'three';
-import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
-
-const wrap = document.getElementById('lockWrap');
-const canvas = document.getElementById('lock3d');
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-let renderer;
-try {
-  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-} catch (e) {
-  wrap.classList.add('no-webgl');
-  throw e;
-}
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-wrap.classList.remove('no-webgl'); // 3D is up: hide the drawn fallback if it was showing
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 50);
-camera.position.set(0, 0.35, 8);
-
-scene.add(new THREE.AmbientLight(0xffffff, 1.6));
-const sun = new THREE.DirectionalLight(0xffffff, 2.2);
-sun.position.set(3, 5, 6);
-scene.add(sun);
-
-/* ---- cel-shading helpers ---- */
-const tones = new Uint8Array([120, 190, 255]);
-const gradient = new THREE.DataTexture(tones, 3, 1, THREE.RedFormat);
-gradient.minFilter = gradient.magFilter = THREE.NearestFilter;
-gradient.needsUpdate = true;
-const INK = 0x16130f;
-const toon = (c) => new THREE.MeshToonMaterial({ color: c, gradientMap: gradient });
-function outline(th) {
-  const m = new THREE.MeshBasicMaterial({ color: INK, side: THREE.BackSide });
-  m.onBeforeCompile = (s) => {
-    s.vertexShader = s.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed += normal * ' + th.toFixed(3) + ';');
-  };
-  return m;
-}
-function inked(geo, color, th = 0.045) {
-  const g = new THREE.Group();
-  g.add(new THREE.Mesh(geo, toon(color)));
-  g.add(new THREE.Mesh(geo, outline(th)));
-  return g;
-}
-
-/* ---- the padlock ---- */
-const lock = new THREE.Group();
-scene.add(lock);
-
-const body = inked(new RoundedBoxGeometry(1.9, 1.55, 0.8, 5, 0.26), 0xffd45c, 0.05);
-lock.add(body);
-
-const flat = (c) => new THREE.MeshBasicMaterial({ color: c });
-const front = 0.405;
-// keyhole "mouth"
-const keyhole = new THREE.Group();
-const kh1 = new THREE.Mesh(new THREE.CircleGeometry(0.13, 32), flat(INK));
-const kh2 = new THREE.Mesh(new THREE.PlaneGeometry(0.1, 0.24), flat(INK));
-kh2.position.y = -0.14;
-keyhole.add(kh1, kh2);
-keyhole.position.set(0, -0.32, front);
-body.add(keyhole);
-// eyes + blush
-const eyes = [];
-for (const x of [-0.38, 0.38]) {
-  const eye = new THREE.Mesh(new THREE.CircleGeometry(0.1, 32), flat(INK));
-  eye.position.set(x, 0.18, front);
-  eye.scale.set(0.9, 1.25, 1);
-  body.add(eye);
-  eyes.push(eye);
-  const shine = new THREE.Mesh(new THREE.CircleGeometry(0.03, 16), flat(0xffffff));
-  shine.position.set(0.03, 0.04, 0.002);
-  eye.add(shine);
-  const blush = new THREE.Mesh(new THREE.CircleGeometry(0.13, 32), new THREE.MeshBasicMaterial({ color: 0xff8fa3, transparent: true, opacity: 0.55 }));
-  blush.position.set(x * 1.45, -0.04, front - 0.002);
-  blush.scale.set(1.3, 0.75, 1);
-  body.add(blush);
-}
-
-// shackle: pivots around its right leg so it can swing open
-const shackle = new THREE.Group();
-const pivotX = 0.52;
-shackle.position.set(pivotX, 0, 0);
-const shackleColor = 0xf1edf9;
-const arc = inked(new THREE.TorusGeometry(0.52, 0.14, 24, 60, Math.PI), shackleColor, 0.04);
-arc.position.set(-pivotX, 1.28, 0);
-const legGeo = new THREE.CylinderGeometry(0.14, 0.14, 0.9, 24);
-const legL = inked(legGeo, shackleColor, 0.04);
-legL.position.set(-pivotX * 2, 0.83, 0);
-const legR = inked(legGeo, shackleColor, 0.04);
-legR.position.set(0, 0.83, 0);
-shackle.add(arc, legL, legR);
-lock.add(shackle);
-lock.position.y = -0.35;
-
-/* ---- little orbiters ---- */
-const orbiters = [
-  { m: inked(new THREE.SphereGeometry(0.17, 24, 16), 0xbff3d4, 0.03), r: 2.0, s: 0.7, y: 0.6, p: 0 },
-  { m: inked(new THREE.TorusGeometry(0.15, 0.06, 12, 32), 0xddd1ff, 0.03), r: 2.25, s: -0.5, y: -0.7, p: 2 },
-  { m: inked(new THREE.OctahedronGeometry(0.2), 0xffcdb8, 0.03), r: 1.9, s: 0.4, y: 1.4, p: 4 },
-  { m: inked(new THREE.TetrahedronGeometry(0.18), 0xc6e6ff, 0.03), r: 2.3, s: -0.65, y: 0.0, p: 5.2 }
-];
-orbiters.forEach((o) => scene.add(o.m));
-
-/* ---- state ---- */
-let open = false, openT = 0, openV = 0, squash = 0;
-function toggle() {
-  open = !open;
-  squash = 1;
-  window.dispatchEvent(new CustomEvent('lockstate', { detail: { open } }));
-}
-window.rkLock = { toggle };
-
-/* ---- interaction ---- */
-let rotY = -0.35, rotX = 0.08, vY = 0, vX = 0, dragging = false, lx = 0, ly = 0, moved = 0;
-canvas.addEventListener('pointerdown', (e) => {
-  dragging = true; moved = 0; lx = e.clientX; ly = e.clientY;
-  canvas.setPointerCapture(e.pointerId);
-});
-canvas.addEventListener('pointermove', (e) => {
-  if (!dragging) return;
-  const dx = e.clientX - lx, dy = e.clientY - ly;
-  moved += Math.abs(dx) + Math.abs(dy);
-  vY = dx * 0.01; vX = dy * 0.006;
-  rotY += vY; rotX += vX;
-  lx = e.clientX; ly = e.clientY;
-});
-canvas.addEventListener('pointerup', () => {
-  if (dragging && moved < 6) toggle();
-  dragging = false;
-});
-canvas.addEventListener('pointercancel', () => { dragging = false; });
-
-function resize() {
-  const w = wrap.clientWidth, h = wrap.clientHeight;
-  renderer.setSize(w, h, false);
-  camera.aspect = w / h;
-  camera.updateProjectionMatrix();
-}
-new ResizeObserver(resize).observe(wrap);
-resize();
-
-let visible = true;
-new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(wrap);
-
-const clock = new THREE.Clock();
-renderer.setAnimationLoop(() => {
-  if (!visible) return;
-  const dt = Math.min(clock.getDelta(), 0.05);
-  const t = clock.elapsedTime;
-
-  if (!dragging) {
-    vY *= 0.93; vX *= 0.9;
-    rotY += vY;
-    rotX += vX + (0.08 - rotX) * 0.04;
-    if (!reduce) rotY += Math.sin(t * 0.6) * 0.0025;
-  }
-  rotX = Math.max(-0.7, Math.min(0.7, rotX));
-  lock.rotation.set(rotX, rotY, reduce ? 0 : Math.sin(t * 1.3) * 0.04);
-  lock.position.y = -0.35 + (reduce ? 0 : Math.sin(t * 1.6) * 0.08);
-
-  // springy open/close
-  const target = open ? 1 : 0;
-  openV += (target - openT) * 90 * dt;
-  openV *= Math.pow(0.0009, dt);
-  openT += openV * dt;
-  const lift = Math.min(Math.max(openT, 0), 1.15);
-  shackle.position.y = lift * 0.55;
-  shackle.rotation.y = -Math.max(0, lift - 0.35) * 2.6;
-
-  // squash + happy eyes
-  squash *= Math.pow(0.002, dt);
-  const sq = Math.sin(squash * Math.PI) * 0.12;
-  body.scale.set(1 + sq, 1 - sq, 1 + sq);
-  const happy = Math.min(Math.max(openT, 0), 1);
-  const blink = !open && (t % 4 < 0.12) ? 0.1 : 1;
-  eyes.forEach((e) => { e.scale.y = (1.25 - happy * 1.0) * blink; });
-
-  orbiters.forEach((o) => {
-    const a = t * o.s + o.p;
-    o.m.position.set(Math.cos(a) * o.r, o.y + Math.sin(t + o.p) * 0.15, Math.sin(a) * o.r * 0.6);
-    o.m.rotation.x += dt; o.m.rotation.y += dt * 1.3;
-  });
-
-  renderer.render(scene, camera);
-});
-
-  </script>
-  <!-- 3D background objects -->
-  <script type="module">
-// Cartoon 3D objects that live in the page margins and drift/spin as you scroll.
-import * as THREE from 'three';
-import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
-
-const wideQuery = window.matchMedia('(min-width: 900px)');
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const canvas = document.getElementById('bg3d');
-
-// start now on wide screens, or later if the window grows past 900px
-let started = false;
-function maybeStart() {
-  if (!started && canvas && wideQuery.matches) { started = true; init(); }
-}
-maybeStart();
-wideQuery.addEventListener('change', maybeStart);
-
-function init() {
-  let renderer;
-  try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  } catch (e) {
-    canvas.remove();
-    return;
-  }
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-  const scene = new THREE.Scene();
-  const FOV = 35, CAM_Z = 10;
-  const camera = new THREE.PerspectiveCamera(FOV, innerWidth / innerHeight, 0.1, 60);
-  camera.position.z = CAM_Z;
-  scene.add(new THREE.AmbientLight(0xffffff, 1.6));
-  const sun = new THREE.DirectionalLight(0xffffff, 2.2);
-  sun.position.set(3, 5, 6);
-  scene.add(sun);
-
-  /* ---- toon helpers (same look as the hero padlock) ---- */
-  const gradient = new THREE.DataTexture(new Uint8Array([120, 190, 255]), 3, 1, THREE.RedFormat);
-  gradient.minFilter = gradient.magFilter = THREE.NearestFilter;
-  gradient.needsUpdate = true;
-  const INK = 0x16130f;
-  const toon = (c) => new THREE.MeshToonMaterial({ color: c, gradientMap: gradient });
-  const outline = (th) => {
-    const m = new THREE.MeshBasicMaterial({ color: INK, side: THREE.BackSide });
-    m.onBeforeCompile = (s) => {
-      s.vertexShader = s.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed += normal * ' + th.toFixed(3) + ';');
-    };
-    return m;
-  };
-  const inked = (geo, color, th = 0.03) => {
-    const g = new THREE.Group();
-    g.add(new THREE.Mesh(geo, toon(color)), new THREE.Mesh(geo, outline(th)));
-    return g;
-  };
-  const flat = (c) => new THREE.MeshBasicMaterial({ color: c });
-
-  /* ---- the cast ---- */
-  function bug() {
-    const g = new THREE.Group();
-    const body = inked(new THREE.SphereGeometry(0.4, 32, 24), 0xff9e8a);
-    body.scale.set(1, 0.78, 1.15);
-    g.add(body);
-    for (const [x, y, z] of [[0.18, 0.26, 0.1], [-0.2, 0.24, -0.08], [0.05, 0.3, -0.25], [-0.12, 0.2, 0.28]]) {
-      const spot = new THREE.Mesh(new THREE.SphereGeometry(0.075, 16, 12), flat(INK));
-      spot.position.set(x, y, z);
-      spot.scale.y = 0.4;
-      g.add(spot);
-    }
-    const head = inked(new THREE.SphereGeometry(0.22, 24, 16), 0x2b2620);
-    head.position.set(0, 0.02, 0.48);
-    g.add(head);
-    for (const x of [-0.09, 0.09]) {
-      const eye = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 12), flat(0xffffff));
-      eye.position.set(x, 0.08, 0.66);
-      const pupil = new THREE.Mesh(new THREE.SphereGeometry(0.03, 12, 8), flat(INK));
-      pupil.position.set(0, 0, 0.045);
-      eye.add(pupil);
-      g.add(eye);
-      const ant = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.3, 6), flat(INK));
-      ant.position.set(x * 1.4, 0.3, 0.55);
-      ant.rotation.set(0.5, 0, x > 0 ? -0.4 : 0.4);
-      g.add(ant);
-      const tip = new THREE.Mesh(new THREE.SphereGeometry(0.035, 12, 8), flat(INK));
-      tip.position.set(x * 2.3, 0.42, 0.62);
-      g.add(tip);
-    }
-    return g;
-  }
-  function key() {
-    const g = new THREE.Group();
-    const ring = inked(new THREE.TorusGeometry(0.2, 0.075, 16, 40), 0xffd45c);
-    ring.position.x = -0.42;
-    const shaft = inked(new THREE.CylinderGeometry(0.06, 0.06, 0.7, 16), 0xffd45c);
-    shaft.rotation.z = Math.PI / 2;
-    shaft.position.x = 0.1;
-    const t1 = inked(new THREE.BoxGeometry(0.08, 0.18, 0.1), 0xffd45c);
-    t1.position.set(0.32, -0.1, 0);
-    const t2 = inked(new THREE.BoxGeometry(0.08, 0.13, 0.1), 0xffd45c);
-    t2.position.set(0.18, -0.08, 0);
-    g.add(ring, shaft, t1, t2);
-    return g;
-  }
-  function shield() {
-    const s = new THREE.Shape();
-    s.moveTo(0, 0.5);
-    s.quadraticCurveTo(0.22, 0.42, 0.42, 0.42);
-    s.quadraticCurveTo(0.44, -0.12, 0, -0.5);
-    s.quadraticCurveTo(-0.44, -0.12, -0.42, 0.42);
-    s.quadraticCurveTo(-0.22, 0.42, 0, 0.5);
-    const geo = new THREE.ExtrudeGeometry(s, { depth: 0.12, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.04, bevelSegments: 4, curveSegments: 24 });
-    geo.center();
-    const g = inked(geo, 0x9fe8bf);
-    const tick = new THREE.Mesh(new THREE.TorusGeometry(0.12, 0.035, 8, 20, Math.PI * 0.9), flat(INK));
-    tick.position.z = 0.13;
-    tick.rotation.z = Math.PI * 1.15;
-    g.add(tick);
-    return g;
-  }
-  function star() {
-    const s = new THREE.Shape();
-    for (let i = 0; i < 10; i++) {
-      const r = i % 2 ? 0.2 : 0.45, a = (i / 10) * Math.PI * 2 + Math.PI / 2;
-      i ? s.lineTo(Math.cos(a) * r, Math.sin(a) * r) : s.moveTo(Math.cos(a) * r, Math.sin(a) * r);
-    }
-    const geo = new THREE.ExtrudeGeometry(s, { depth: 0.12, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.04, bevelSegments: 3 });
-    geo.center();
-    return inked(geo, 0xffb199);
-  }
-  const cube = () => inked(new RoundedBoxGeometry(0.55, 0.55, 0.55, 4, 0.1), 0xc9b8ff);
-  const pill = () => inked(new THREE.CapsuleGeometry(0.16, 0.4, 8, 20), 0xa9d8ff);
-  const donut = () => inked(new THREE.TorusGeometry(0.26, 0.11, 18, 40), 0xffd3ea);
-
-  // where each object sits: fraction down the page, which side, depth
-  const CAST = [
-    [bug, 0.15, -1, 0.2], [key, 0.22, 1, -0.4], [shield, 0.31, -1, 0], [star, 0.39, 1, 0.3],
-    [cube, 0.48, -1, -0.3], [bug, 0.57, 1, 0], [pill, 0.66, -1, 0.2], [donut, 0.74, 1, -0.2],
-    [shield, 0.83, -1, 0.1], [star, 0.92, 1, 0]
-  ].map(([make, frac, side, z], i) => {
-    const obj = make();
-    obj.userData = { frac, side, z, spin: 0.25 + (i % 3) * 0.12, phase: i * 1.7 };
-    obj.rotation.set(Math.random() * 6, Math.random() * 6, 0);
-    scene.add(obj);
-    return obj;
-  });
-
-  let k = 0, halfW = 0, docH = 0;
-  function layout() {
-    renderer.setSize(innerWidth, innerHeight, false);
-    camera.aspect = innerWidth / innerHeight;
-    camera.updateProjectionMatrix();
-    const visH = 2 * Math.tan((FOV * Math.PI) / 360) * CAM_Z;
-    k = visH / innerHeight;
-    halfW = (visH / 2) * camera.aspect;
-    docH = document.documentElement.scrollHeight;
-    // sit in the middle of the gutter beside the 1240px content column, sized to fit it
-    const gutterPx = Math.max(70, (innerWidth - 1240) / 2);
-    const xPx = innerWidth / 2 - gutterPx / 2;
-    const sizePx = Math.min(90, Math.max(46, gutterPx * 0.45));
-    const s = (sizePx * k) / 0.9;
-    CAST.forEach((o) => {
-      o.scale.setScalar(s);
-      o.position.x = o.userData.side * xPx * k;
-      o.userData.baseY = -o.userData.frac * docH * k;
-      o.position.z = o.userData.z;
-    });
-  }
-  layout();
-  addEventListener('resize', layout);
-  new ResizeObserver(layout).observe(document.body);
-
-  let mx = 0, my = 0, lastScroll = scrollY, spinBoost = 0;
-  addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; }, { passive: true });
-
-  const clock = new THREE.Clock();
-  renderer.setAnimationLoop(() => {
-    const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
-    const vel = scrollY - lastScroll;
-    lastScroll = scrollY;
-    spinBoost += (Math.min(Math.abs(vel), 80) * 0.02 - spinBoost) * 0.1;
-
-    camera.position.y = -(scrollY + innerHeight / 2) * k;
-    camera.position.x += (mx * 0.4 - camera.position.x) * 0.05;
-    camera.rotation.x += (-my * 0.03 - camera.rotation.x) * 0.05;
-
-    CAST.forEach((o) => {
-      const u = o.userData;
-      // slight parallax: objects lag behind the scroll a little, deeper ones more
-      u.lag = (u.lag || 0) + (vel * k * (3 + u.z * 2) - (u.lag || 0)) * 0.08;
-      o.position.y = u.baseY + (reduce ? 0 : Math.sin(t * 0.8 + u.phase) * 0.12) - u.lag;
-      if (!reduce) {
-        o.rotation.y += dt * (u.spin + spinBoost);
-        o.rotation.x += dt * (u.spin * 0.5 + spinBoost * 0.6);
-      }
-    });
-    renderer.render(scene, camera);
-  });
-}
-
-  </script>
-  <!-- Paper Shaders (Apache-2.0): liquid-metal RK logo + flowing gradient behind the story -->
-  <script type="module">
-    import { ShaderMount, liquidMetalFragmentShader, toProcessedLiquidMetal, meshGradientFragmentShader, getShaderColorFromString, ShaderFitOptions, LiquidMetalShapes } from 'https://cdn.jsdelivr.net/npm/@paper-design/shaders@0.0.81/dist/index.js';
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const sizing = { u_fit: ShaderFitOptions.contain, u_scale: 1, u_rotation: 0, u_offsetX: 0, u_offsetY: 0, u_originX: 0.5, u_originY: 0.5, u_worldWidth: 0, u_worldHeight: 0 };
-
-    (async () => {
-      const badge = document.querySelector('.logo-badge');
-      if (!badge) return;
-      const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><text x="200" y="272" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="210" letter-spacing="-8" fill="#000">RK</text></svg>';
-      const res = await toProcessedLiquidMetal('data:image/svg+xml;base64,' + btoa(svg));
-      const img = new Image();
-      img.src = URL.createObjectURL(res.pngBlob);
-      await img.decode();
-      const host = document.createElement('span');
-      host.className = 'logo-metal';
-      host.setAttribute('aria-hidden', 'true');
-      badge.appendChild(host);
-      new ShaderMount(host, liquidMetalFragmentShader, {
-        ...sizing, u_scale: 0.92, u_image: img, u_isImage: true, u_shape: LiquidMetalShapes.none,
-        u_colorBack: getShaderColorFromString('#9c9ca8'), u_colorTint: getShaderColorFromString('#ffffff'),
-        u_contour: 0.4, u_distortion: 0.07, u_softness: 0.1, u_repetition: 2, u_shiftRed: 0.3, u_shiftBlue: 0.3, u_angle: 70
-      }, undefined, reduce ? 0 : 1, 0, 2, undefined, ['u_image']);
-      badge.classList.add('metal-on');
-    })().catch((e) => console.warn('liquid logo skipped:', e));
-
-    const bg = document.getElementById('scBg');
-    if (bg) {
-      try {
-        new ShaderMount(bg, meshGradientFragmentShader, {
-          ...sizing, u_fit: ShaderFitOptions.none,
-          u_colors: ['#ddd1ff', '#c6e6ff', '#bff3d4', '#ffcdb8', '#ffeaa0'].map(getShaderColorFromString), u_colorsCount: 5,
-          u_distortion: 0.8, u_swirl: 0.15, u_grainMixer: 0, u_grainOverlay: 0
-        }, undefined, reduce ? 0 : 0.3);
-      } catch (e) { console.warn('story gradient skipped:', e); }
-    }
-  </script>
+  <script src="main.js?v=100" defer></script>
+  <script type="module" src="fx.mjs?v=100"></script>
 </body>
 </html>
